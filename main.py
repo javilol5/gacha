@@ -74,32 +74,32 @@ while running:
             page4.handle_events(event, game)
 
     if current_page == 1:
-        if page1.rightpage_button.collidepoint(pygame.mouse.get_pos()):
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                current_page += 1
-
+        page1.draw(screen, game)
     elif current_page == 2:
-        if page2.rightpage_button.collidepoint(pygame.mouse.get_pos()):
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                current_page += 1
-        if page2.leftpage_button.collidepoint(pygame.mouse.get_pos()):
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                current_page -= 1
-
+        page2.draw(screen, game)
     elif current_page == 3:
-        if page2.rightpage_button.collidepoint(pygame.mouse.get_pos()):
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                current_page += 1
-        if page2.leftpage_button.collidepoint(pygame.mouse.get_pos()):
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                current_page -= 1
-
+        page3.draw(screen, game)
     elif current_page == 4:
-        if page2.leftpage_button.collidepoint(pygame.mouse.get_pos()):
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                current_page -= 1
+        page4.draw(screen, game)
 
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        # Botones de page2
+        if current_page == 2:
+            if page2.rightpage_button.collidepoint(event.pos):
+                if current_page < 4:
+                    current_page += 1
+            if page2.leftpage_button.collidepoint(event.pos):
+                if current_page > 1:
+                    current_page -= 1
 
+        # Botones de page3
+        if current_page == 3:
+            if page3.rightpage_button.collidepoint(event.pos):
+                if current_page < 4:
+                    current_page += 1
+            if page3.leftpage_button.collidepoint(event.pos):
+                if current_page > 1:
+                    current_page -= 1
 
     pygame.display.update()
     clock.tick(60)

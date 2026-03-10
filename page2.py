@@ -63,10 +63,12 @@ def handle_events(event, game):
         if pull1_button.collidepoint(event.pos):
             if game.currency >= 10:
                 game.currency -= 10
-                print("Single pull!")
+                print("Single pull")
 
         if pull3_button.collidepoint(event.pos):
             if game.currency >= 30:
                 game.currency -= 30
-                print("Triple pull!")
+                print("Three pull")
+
+
 
