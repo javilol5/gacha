@@ -35,6 +35,6 @@ def draw(screen, game):
 
     # Dinero
         # Color
-    currency_text = small_font.render(f"Money: {game.currency}", True, (255, 255, 255))
+    money_text = small_font.render(f"Money: {game.currency}", True, (255, 255, 255))
         # Posicion texto
-    screen.blit(currency_text, (20, 20))
+    screen.blit(money_text, (650, 20))
