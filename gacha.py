@@ -6,8 +6,9 @@ POOL_FILE = "cards_pool.json"
 
 def load_pool():
 
-    with open(POOL_FILE, "r") as file:
+    with open(POOL_FILE, "r", encoding="utf-8") as file:
         return json.load(file)
+    return pool
 
 
 def get_random_rarity(rarities):
@@ -17,7 +18,7 @@ def get_random_rarity(rarities):
 
     for rarity, chance in rarities.items():
         rarity_list.append(rarity)
-        weights.append(chance)
+        weights.append(rarities[rarity])
 
     return random.choices(rarity_list, weights=weights)[0]
 
@@ -31,9 +32,11 @@ def pull_card():
     possible_cards = []
 
     for card in pool["cards"]:
+
         if card["rarity"] == rarity:
+
             possible_cards.append(card)
 
-    card = random.choice(possible_cards)
+    chosen_card = random.choice(possible_cards)
 
-    return card["id"], card["set"]
+    return chosen_card["id"], chosen_card["set"]

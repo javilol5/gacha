@@ -1,6 +1,7 @@
 import pygame
 import os
 import json
+import page3
 
 SAVE_FILE = "profile.json"
 

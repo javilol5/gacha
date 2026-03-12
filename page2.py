@@ -1,15 +1,15 @@
 import pygame
 from cards import add_card
 from gacha import pull_card
-from pool import get_card_by_id
+from pool import get_card_by_id_set
 import random
 
 
 # Buttons
-pull1_button = pygame.Rect(250, 750, 120, 60)
-pull3_button = pygame.Rect(430, 750, 140, 60)
+pull1_button = pygame.Rect(305, 750, 120, 60)
+pull3_button = pygame.Rect(475, 750, 120, 60)
 
-rightpage_button = pygame.Rect(750, 400, 50, 50)
+rightpage_button = pygame.Rect(850, 400, 50, 50)
 leftpage_button = pygame.Rect(0, 400, 50, 50)
 
 
@@ -19,18 +19,20 @@ def draw(screen, game):
     font = pygame.font.Font(None, 40)
     small_font = pygame.font.Font(None, 30)
 
-    screen.fill((30, 30, 40))
+
+    screen.fill((90, 90, 100))
+
 
     # Title
     title = font.render("Gacha Casal", True, (255, 255, 255))
-    screen.blit(title, (320, 40))
+    screen.blit(title, (400, 40))
 
     # Banner
-    banner = pygame.Rect(200, 120, 400, 600)
+    banner = pygame.Rect(200, 120, 500, 600)
     pygame.draw.rect(screen, (60, 60, 90), banner)
 
     banner_text = small_font.render("Banner", True, (255, 255, 255))
-    screen.blit(banner_text, (380, 210))
+    screen.blit(banner_text, (400, 210))
 
     # Creacion botones Pull
         # Color
@@ -40,8 +42,8 @@ def draw(screen, game):
     pull1_text = small_font.render("Pull x1", True, (0, 0, 0))
     pull3_text = small_font.render("Pull x3", True, (0, 0, 0))
         # Posicion texto
-    screen.blit(pull1_text, (275, 770))
-    screen.blit(pull3_text, (460, 770))
+    screen.blit(pull1_text, (325, 770))
+    screen.blit(pull3_text, (495, 770))
 
     # Creacion botones Pagina
         # Color
@@ -51,14 +53,14 @@ def draw(screen, game):
     rightpage_text = small_font.render(">", True, (0, 0, 0))
     leftpage_text = small_font.render("<", True, (0, 0, 0))
         # Posicion texto
-    screen.blit(rightpage_text, (775, 415))
+    screen.blit(rightpage_text, (875, 415))
     screen.blit(leftpage_text, (25, 415))
 
     # Dinero
         # Color
     money_text = small_font.render(f"Money: {game.currency}", True, (255,255,255))
         #Posicion texto
-    screen.blit(money_text, (650, 20))
+    screen.blit(money_text, (750, 20))
 
 def handle_events(event, game):
 
@@ -70,7 +72,7 @@ def handle_events(event, game):
                 card_id, card_set = pull_card()
 
                 add_card(card_id, card_set)
-                card = get_card_by_id(card_id)
+                card = get_card_by_id_set(card_id, card_set)
 
                 print("You obtained:", card["name"])
                 print("Rarity:", card["rarity"])
@@ -85,7 +87,7 @@ def handle_events(event, game):
                     card_id, card_set = pull_card()
 
                     add_card(card_id, card_set)
-                    card = get_card_by_id(card_id)
+                    card = get_card_by_id_set(card_id, card_set)
 
                     print("You obtained:", card["name"])
                     print("Rarity:", card["rarity"])

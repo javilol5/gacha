@@ -12,18 +12,18 @@ def handle_events(event, game):
 
 def draw(screen, game):
 
-    screen.fill((120, 120, 130))
+    screen.fill((90, 90, 100))
 
     # Title
     title = font.render("Page 4", True, (255, 255, 255))
-    screen.blit(title, (320, 40))
+    screen.blit(title, (400, 40))
 
     # Banner
-    banner = pygame.Rect(200, 120, 400, 600)
+    banner = pygame.Rect(200, 120, 500, 600)
     pygame.draw.rect(screen, (60, 60, 90), banner)
 
     banner_text = small_font.render("Banner", True, (255, 255, 255))
-    screen.blit(banner_text, (380, 210))
+    screen.blit(banner_text, (400, 210))
 
     # Creacion botones Pagina
         # Color
@@ -37,4 +37,4 @@ def draw(screen, game):
         # Color
     money_text = small_font.render(f"Money: {game.currency}", True, (255, 255, 255))
         # Posicion texto
-    screen.blit(money_text, (650, 20))
+    screen.blit(money_text, (750, 20))

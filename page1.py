@@ -1,6 +1,6 @@
 import pygame
 
-rightpage_button = pygame.Rect(750, 400, 50, 50)
+rightpage_button = pygame.Rect(850, 400, 50, 50)
 
 # Fonts
 big_font = pygame.font.Font(None, 50)
@@ -17,14 +17,14 @@ def draw(screen, game):
 
     # Title
     title = font.render("Page 1", True, (255, 255, 255))
-    screen.blit(title, (320, 40))
+    screen.blit(title, (400, 40))
 
     # Banner
-    banner = pygame.Rect(200, 120, 400, 600)
+    banner = pygame.Rect(200, 120, 500, 600)
     pygame.draw.rect(screen, (60, 60, 90), banner)
 
     banner_text = small_font.render("Banner", True, (255, 255, 255))
-    screen.blit(banner_text, (380, 210))
+    screen.blit(banner_text, (400, 210))
 
     # Creacion botones Pagina
         # Color
@@ -32,13 +32,13 @@ def draw(screen, game):
         # Texto
     rightpage_text = small_font.render(">", True, (0, 0, 0))
         # Posicion texto
-    screen.blit(rightpage_text, (775, 415))
+    screen.blit(rightpage_text, (875, 415))
 
     # Dinero
         # Color
     money_text = small_font.render(f"Money: {game.currency}", True, (255, 255, 255))
         # Posicion texto
-    screen.blit(money_text, (650, 20))
+    screen.blit(money_text, (750, 20))
 
 
 

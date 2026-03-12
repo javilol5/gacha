@@ -1,5 +1,6 @@
 import pygame
 import sys
+import cards
 
 pygame.init()
 
@@ -8,7 +9,7 @@ import page1, page2, page3, page4
 from stats import Game
 
 
-WIDTH = 800
+WIDTH = 900
 HEIGHT = 900
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Gacha Casal")
@@ -80,7 +81,6 @@ while running:
 
     pygame.display.update()
     clock.tick(60)
-
     game.passive_income()
 
 pygame.quit()
