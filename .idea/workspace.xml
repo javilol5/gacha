@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9b1f197-bf7e-4e1e-b86a-607301cab0e2" name="Changes" comment="cartas añadidas al pool de DAMC1">
+    <list default="true" id="a9b1f197-bf7e-4e1e-b86a-607301cab0e2" name="Changes" comment="falta la carta id 69 set DAMC1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cards.json" beforeDir="false" afterPath="$PROJECT_DIR$/cards.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cards_pool.json" beforeDir="false" afterPath="$PROJECT_DIR$/cards_pool.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page2.py" beforeDir="false" afterPath="$PROJECT_DIR$/page2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/profile.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773318700759</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="falta la carta id 69 set DAMC1">
+      <option name="closed" value="true" />
+      <created>1773322784057</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1773322784057</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -199,6 +209,7 @@
     <MESSAGE value="pool modificado para las nuevas rarezas" />
     <MESSAGE value="arreglos y mas cartas añadidas al pool de DAMC1" />
     <MESSAGE value="cartas añadidas al pool de DAMC1" />
-    <option name="LAST_COMMIT_MESSAGE" value="cartas añadidas al pool de DAMC1" />
+    <MESSAGE value="falta la carta id 69 set DAMC1" />
+    <option name="LAST_COMMIT_MESSAGE" value="falta la carta id 69 set DAMC1" />
   </component>
 </project>

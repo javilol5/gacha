@@ -4,6 +4,8 @@ from gacha import pull_card
 from pool import get_card_by_id_set
 import random
 
+last_card = None
+
 
 # Buttons
 pull1_button = pygame.Rect(305, 750, 120, 60)
@@ -11,6 +13,44 @@ pull3_button = pygame.Rect(475, 750, 120, 60)
 
 rightpage_button = pygame.Rect(850, 400, 50, 50)
 leftpage_button = pygame.Rect(0, 400, 50, 50)
+
+
+
+
+def handle_events(event, game):
+    global last_card
+
+    if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+        if pull1_button.collidepoint(event.pos):
+            if game.currency >= 10:
+                game.currency -= 10
+                print("Single pull")
+                card_id, card_set = pull_card()
+
+                add_card(card_id, card_set)
+                card = get_card_by_id_set(card_id, card_set)
+                last_card = get_card_by_id_set(card_id, card_set)
+
+                print("You obtained:", card["name"])
+                print("Rarity:", card["rarity"])
+                print("ATK:", card["attack"])
+                print("DEF:", card["defense"])
+
+        if pull3_button.collidepoint(event.pos):
+            if game.currency >= 30:
+                game.currency -= 30
+                print("Three pull")
+                for x in range(0,3):
+                    card_id, card_set = pull_card()
+
+                    add_card(card_id, card_set)
+                    card = get_card_by_id_set(card_id, card_set)
+
+                    print("You obtained:", card["name"])
+                    print("Rarity:", card["rarity"])
+                    print("ATK:", card["attack"])
+                    print("DEF:", card["defense"])
+
 
 
 def draw(screen, game):
@@ -31,8 +71,20 @@ def draw(screen, game):
     banner = pygame.Rect(200, 120, 500, 600)
     pygame.draw.rect(screen, (60, 60, 90), banner)
 
-    banner_text = small_font.render("Banner", True, (255, 255, 255))
-    screen.blit(banner_text, (400, 210))
+    if last_card:
+
+        name_text = font.render(f"{last_card['name']}", True, (255,255,255))
+        id_text = small_font.render(f"ID: {last_card['id']}", True, (255,255,255))
+        rarity_text = small_font.render(f"Rarity: {last_card['rarity']}", True, (255,255,255))
+        atk_text = small_font.render(f"ATK: {last_card['attack']}", True, (255,255,255))
+        def_text = small_font.render(f"DEF: {last_card['defense']}", True, (255,255,255))
+
+        screen.blit(name_text, (320, 200))
+        screen.blit(id_text, (320, 260))
+        screen.blit(rarity_text, (320, 300))
+        screen.blit(atk_text, (320, 340))
+        screen.blit(def_text, (320, 380))
+
 
     # Creacion botones Pull
         # Color
@@ -61,38 +113,3 @@ def draw(screen, game):
     money_text = small_font.render(f"Money: {game.currency}", True, (255,255,255))
         #Posicion texto
     screen.blit(money_text, (750, 20))
-
-def handle_events(event, game):
-
-    if event.type == pygame.MOUSEBUTTONDOWN:
-        if pull1_button.collidepoint(event.pos):
-            if game.currency >= 10:
-                game.currency -= 10
-                print("Single pull")
-                card_id, card_set = pull_card()
-
-                add_card(card_id, card_set)
-                card = get_card_by_id_set(card_id, card_set)
-
-                print("You obtained:", card["name"])
-                print("Rarity:", card["rarity"])
-                print("ATK:", card["attack"])
-                print("DEF:", card["defense"])
-
-        if pull3_button.collidepoint(event.pos):
-            if game.currency >= 30:
-                game.currency -= 30
-                print("Three pull")
-                for x in range(0,3):
-                    card_id, card_set = pull_card()
-
-                    add_card(card_id, card_set)
-                    card = get_card_by_id_set(card_id, card_set)
-
-                    print("You obtained:", card["name"])
-                    print("Rarity:", card["rarity"])
-                    print("ATK:", card["attack"])
-                    print("DEF:", card["defense"])
-
-
-
